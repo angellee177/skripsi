@@ -1,0 +1,28 @@
+  <!-- Sidebar -->
+<div class="w3-sidebar  w3-bar-block w3-border-right w3-teal" 
+style="display:none" id="mySidebar">
+<button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+<ul class="nav navbar-nav" style="padding-left:10px;padding-right:15px">
+    <li style="padding-top:20px"></li>
+    <% if logged_in? %>
+        <li>
+          <% if current_montir.picture.attached? %>
+            <%= image_tag url_for(current_montir.picture), size:'150', class:'img rounded-circle'%>
+          <% else %>
+              <%= gravatar_for @montir, size: 150 %>
+          <% end %>
+          <hr/>
+        </li>
+        <li><%= link_to "View your Profile", montir_path(current_montir), class:"w3-bar-item w3-button", style:'color:white'%></li>
+        <li><%= link_to "Edit Your Profile", edit_montir_path(current_montir),class:"w3-bar-item w3-button", style:'color:white' %></li>
+        <li><a href="pelanggans/new" class="w3-bar-item w3-button", style="color:white">Create New Pelanggan</a></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete, class:"w3-bar-item w3-button", style:'color:white'%></li>
+     <% else%>
+          <li><%= link_to "Log In", login_path, class:"w3-bar-item w3-button", style:"color:white" %></li>
+    <% end %>
+    <li><a href="pelanggans" class="w3-bar-item w3-button", style="color:white">Daftar Pelanggan</a></li>
+    <li><%= link_to "All Sales", sales_path, class:"w3-bar-item w3-button", style:'color:white' %></li>  
+    <li><%= link_to "All Products", products_path, class:"w3-bar-item w3-button", style:'color:white' %></li>  
+</ul>
+</div>
+

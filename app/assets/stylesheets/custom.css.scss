@@ -1,0 +1,30 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+.recipe-actions {
+    padding-top: 5px;
+    a {
+        color: #fff;
+    }
+}
+
+.description {
+    margin-top: 0;
+}
+
+.montir-info {
+    margin-top: 10px;
+}
+
+.well a {
+    color: goldenrod;
+}
+
+.listing {
+    list-style: none;
+    padding-left: 0;
+}
+
+.img {
+    border-radius: 50%;
+    padding-left: 10px;
+  }

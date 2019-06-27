@@ -1,0 +1,63 @@
+<%# Header with Sidebar Button %>
+<div class="w3-container w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Detail Product" %>
+  </div>
+</div>
+<div class="container">
+  <div class="well col-md-8 col-md-offset-2">
+    <div class="row description">
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <strong>Code:</strong>
+        <%= @product.code %>
+      </p>
+
+      <p>
+        <strong>Name:</strong>
+        <%= @product.name %>
+      </p>
+
+      <p>
+        <strong>Price:</strong>
+        <%= @product.price %>
+      </p>
+
+      <p>
+        <strong>Montir:</strong>
+        <%= @product.montir.name %>
+      </p>
+    </div>
+    <%# Showing Montir and create at %>
+    <div class="pull-right">
+            <p class="center">
+                <em>Created By:</em>
+            </p>
+            <p class="center">
+                <% if @product.montir.picture.attached? %>
+                    <%= image_tag url_for(@product.montir.picture), size:'150', class:'img rounded-circle'%>
+                <% else %>
+                    <%= link_to gravatar_for(@product.montir), pelanggans_path%>
+                <% end %>
+            </p>
+            <p class="center">
+                <small>
+                    <%= @product.montir.name.capitalize %>
+                </small>
+                <div class="pull-right">
+                    <div class="pull-right">Created:<%= time_ago_in_words(@product.created_at)%> ago
+                </div>
+            </p>
+    </div>
+  </div>
+
+  <%# Button Edit %>
+  <div class="recipe-actions">
+    <%= link_to 'Edit', edit_product_path(@product), class:'btn btn-info' %> |
+    <%= link_to 'Back', products_path, class:'btn btn-default' %>
+  </div>
+</div>
+
+

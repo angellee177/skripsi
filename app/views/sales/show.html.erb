@@ -1,0 +1,81 @@
+<%# Header with Sidebar Button %>
+<div class="w3-container w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Detail Penjualan / Sale" %>
+  </div>
+</div>
+
+<%# Content %>
+<div class="container">
+  <div class="well col-md-8 col-md-offset-2">
+    <%# Detail Data %>
+    <div class="pull-left">  
+    <ul>
+      <hr/>
+      <li>
+          <strong>Nama Customer:</strong>
+          <%= @sale.pelanggan.nama %>
+      </li>
+      <br>
+      <li>
+          <strong>Plat Kendaraan:</strong>
+          <%= @sale.no_kendaraan %>
+      </li>
+    </ul>
+    </div>
+    <%# Detail Nomor Perbaikan %>
+    <div class="pull-right">
+      <ul>
+        <li>  
+            <strong>Nomor ID Service:</strong>
+            <%= @sale.id %>
+        </li>
+      </ul>
+    </div>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @sale.items.each do |item| %>
+        <tr>
+          <td><%= item.product.name %></td>
+          <td><%= item.product.price %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.total %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <hr/>
+    <p>Total</p>
+    <%= @sale.total_all %>
+    <%# Showing Montir and create at %>
+    <div class="pull-right">
+            <p class="center">
+                <em>Created By:</em>
+            </p>
+            <p class="center">
+                <small>
+                    <%= @sale.montir.name.capitalize %>
+                </small>
+                <div class="pull-right">
+                    <div class="pull-right">Created:<%= time_ago_in_words(@sale.created_at)%> ago
+                </div>
+            </p>
+    </div>
+  </div>
+
+  <%# Button Edit %>
+  <div class="recipe-actions">
+    <%= link_to 'Edit', edit_sale_path(@sale), class:'btn btn-info' %> |
+    <%= link_to 'Back', sales_path, class:'btn btn-default' %>
+  </div>
+</div>

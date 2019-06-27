@@ -1,0 +1,8 @@
+ <fieldset>  
+  <%= form.label :product, "Product" %>  
+  <%= form.collection_select :product_id, Product.all, :id, :name, class:'form-control' %>  
+  <%= form.label :quantity, "Quantity" %>  
+  <%= form.text_field :quantity, class: 'padli form-control', placeholder:'Jumlah barang' %>  
+  <%= form.hidden_field :_destroy %>  
+  <%= link_to "remove", '#', class: "remove_fields" %>  
+ </fieldset>  

@@ -1,0 +1,38 @@
+<div style="container">
+<%= form_with(model: pelanggan, local: true) do |form| %>
+  <% if pelanggan.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pelanggan.errors.count, "error") %> prohibited this pelanggan from being saved:</h2>
+
+      <ul>
+      <% pelanggan.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :nik %>
+    <%= form.text_field :nik, class:'form-control', placeholder:'Nomor Identitas Pelanggan'%>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :nama %>
+    <%= form.text_field :nama, class:'form-control', placeholder:'Nama Pelanggan' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :alamat %>
+    <%= form.text_area :alamat, class:'form-control', placeholder:'Masukkan Alamat Pelanggan' %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :no_telp %>
+    <%= form.text_field :no_telp,class:'form-control', placeholder:'Masukkan Nomor Telephone Pelanggan'%>
+  </div>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

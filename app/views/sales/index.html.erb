@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<%# Header with Sidebar Button %>
+<div class="w3-container w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Service List" %>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nama Pelanggan</th>
+      <th>Detail Kerusakan</th>
+      <th>Nomor Plat</th>
+      <th>Total</th>
+      <th>Montir</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.pelanggan.nama %></td>
+        <td><%= sale.name %></td>
+        <td><%= sale.no_kendaraan %></td>
+        <td><%= sale.total_all %></td>
+        <td><%= sale.montir.name %></td>
+        <td><%= link_to 'Show', sale, class:'btn btn-success', style:'color:white'%></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale),class:'btn btn-defailt' %></td>
+        <td>
+            <%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' },
+            class:'btn btn-danger', style:'color:white'%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale', new_sale_path, class:'btn btn-primary', style:'color:white'  %>

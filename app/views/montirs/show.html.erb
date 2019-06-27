@@ -1,0 +1,47 @@
+<div class="w3-container w3-teal">
+    <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+    <div class="w3-container">
+        <%= render 'templates/page_title', title:"Montir #{@montir.name}'s Profile"%>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 col-md-offset-4 center">
+        <% if @montir.picture.attached? %>
+            <%= image_tag url_for(@montir.picture), size:'150', class:'img rounded-circle'%>
+        <% else %>
+            <%= gravatar_for @montir, size: 150 %>
+        <% end %>
+    </div>
+</div>
+<h4 style="text-align:center"><%= @montir.name %>'s Perbaikan</h4>
+<div class="container">
+    <div class="well col-md-8 col-md-offset-2">
+    <table>
+        <tbody>
+            <tr>
+                <td><strong>Nama</strong></td>
+                <td><%= @montir.name %></td>
+            </tr>
+            <tr>
+                <td><strong>Username</strong></td>
+                <td><%= @montir.username %></td>
+            </tr>
+            <tr>
+                <td><strong>Email</td>
+                <td><%= @montir.email %></td>
+            </tr>
+            <tr>
+                <td><strong>Tanggal Lahir</strong></td>
+                <td><%= @montir.tanggal_lahir %></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr/>
+     <%= link_to "Edit Your Account", edit_montir_path(current_montir), class: "btn btn-xs btn-warning" %>
+    </div>
+</div>
+
+
+
+

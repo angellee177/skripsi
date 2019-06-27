@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<%# Header with Sidebar Button %>
+<div class="w3-container w3-teal">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Index Data Pelanggan" %>
+  </div>
+</div>
+
+<%# Content %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Nik</th>
+      <th>Nama</th>
+      <th>Alamat</th>
+      <th>Nomor telp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%# Render Pelanggan Lists %>
+    <%= render 'pelanggan', obj: @pelanggans %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pelanggan', new_pelanggan_path, class:'btn btn-primary', style:'color:white' %>

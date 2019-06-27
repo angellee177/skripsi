@@ -1,0 +1,9 @@
+<div class="w3-teal w3-container">
+  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Create New Pelanggan" %>
+  </div>
+</div>
+
+<%= render 'form', pelanggan: @pelanggan %>
+<%= link_to 'Back', pelanggans_path, class:'btn btn-default' %>
