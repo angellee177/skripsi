@@ -1,13 +1,11 @@
-<%# Header with Sidebar Button %>
-<div class="w3-container w3-teal">
-  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
-  <div class="w3-container">
-    <%= render 'templates/page_title', title:"Detail Penjualan / Sale" %>
-  </div>
-</div>
-
-<%# Content %>
-<div class="container">
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nota Pembayaran</title>
+        <%= wicked_pdf_stylesheet_link_tag "application" %>
+    </head>
+    <body>
+        <div class="container">
   <div class="well col-md-8 col-md-offset-2">
     <%# Detail Data %>
     <div class="pull-left">  
@@ -86,10 +84,5 @@
             </p>
     </div>
   </div>
-
-  <%# Button Edit %>
-  <div class="recipe-actions">
-    <%= link_to 'Edit', edit_sale_path(@sale), class:'btn btn-info' %> |
-    <%= link_to 'Back', sales_path, class:'btn btn-default' %>
-  </div>
-</div>
+    </body>
+</html>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_26_093455) do
+ActiveRecord::Schema.define(version: 2019_06_27_061246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_093455) do
   end
 
   create_table "pelanggans", force: :cascade do |t|
-    t.bigint "nik"
+    t.bigint "code"
     t.string "nama"
     t.text "alamat"
     t.bigint "no_telp"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 2019_06_26_093455) do
     t.datetime "updated_at", null: false
     t.integer "pelanggan_id"
     t.string "no_kendaraan"
+    t.decimal "diskon"
     t.index ["montir_id"], name: "index_sales_on_montir_id"
   end
 

@@ -10,6 +10,15 @@ class SalesController < ApplicationController
   # GET /sales/1
   # GET /sales/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf do 
+        render template:'sales/show', pdf:'show', 
+        filename: "#{@sale.pelanggan.nama} (#{@sale.pelanggan.code})-pembayaran.pdf",
+        disposition: :inline
+      end
+    end
   end
 
   # GET /sales/new
@@ -70,6 +79,6 @@ class SalesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sale_params
-      params.require(:sale).permit(:name,:montir_id, :pelanggan_id, :no_kendaraan, items_attributes: [:id, :product_id, :price, :quantity, :total, :_destroy])
+      params.require(:sale).permit(:name,:montir_id, :pelanggan_id, :no_kendaraan, :diskon, items_attributes: [:id, :product_id, :price, :quantity, :total, :_destroy])
     end
 end

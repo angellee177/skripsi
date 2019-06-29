@@ -68,3 +68,8 @@ gem 'autoprefixer-rails'
 # Install Public Activity untuk mencatat transaksi
 gem "nested_form"    
 gem 'public_activity'
+
+# Generate Pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-binary-edge'
