@@ -70,6 +70,5 @@ gem "nested_form"
 gem 'public_activity'
 
 # Generate Pdf
-gem 'wicked_pdf'
+gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary'
-gem 'wkhtmltopdf-binary-edge'

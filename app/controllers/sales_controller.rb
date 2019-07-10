@@ -14,8 +14,8 @@ class SalesController < ApplicationController
       format.html
       format.json
       format.pdf do 
-        render template:'sales/show', pdf:'show', 
-        filename: "#{@sale.pelanggan.nama} (#{@sale.pelanggan.code})-pembayaran.pdf",
+        render template:'sales/show.html.erb', layout:'sales.pdf.html', 
+        pdf: "#{@sale.pelanggan.nama}(#{@sale.pelanggan.code})-pembayaran",
         disposition: :inline
       end
     end

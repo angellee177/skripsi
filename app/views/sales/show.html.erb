@@ -66,7 +66,6 @@
       <%= @sale.diskon %>
      <%# Showing Total %>
       <p><strong>Total yang harus di bayar:</strong></p>
-      <p><%= @sale.total_all %></p>
     </p>
    
     
@@ -89,7 +88,8 @@
 
   <%# Button Edit %>
   <div class="recipe-actions">
-    <%= link_to 'Edit', edit_sale_path(@sale), class:'btn btn-info' %> |
-    <%= link_to 'Back', sales_path, class:'btn btn-default' %>
+    <%= link_to 'Edit', edit_sale_path(@sale), class:'btn btn-xs btn-info' %> |
+    <%= link_to 'Back', sales_path, class:'btn btn-xs btn-default' %> | 
+    <%= link_to 'Print Bill', sale_path(@sale, :format => :pdf), class:'btn btn-xs btn-success' %>
   </div>
 </div>

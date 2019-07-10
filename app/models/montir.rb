@@ -3,17 +3,27 @@ class Montir < ApplicationRecord
     # Association with Pelanggan Table
     has_many :pelanggans, dependent: :destroy
 
+    # Association With Sales
     has_many :sales, dependent: :destroy
+
+    # Association Many to Many between Montir with Salary
+    has_many :montir_salaries
+    has_many :salaries, through: :montir_salaries
+
+    
     # For Validation these column can't be Blank
     validates :name, presence: {messages:"Montir Name can't be Blank!"},
     length: {maximum: 30, messages:"Montir name Max. is 30 Character!"}
+
     # Validates For Username
     validates :username, presence: {messages:"You must enter Montir Username!"},
     uniqueness: { case_sensitive: false }
+
     # Validates For Password
     validates :password, presence: true, 
     length: { minimum: 5, messages: " Password Minimum 5 Character!"},
     allow_nil: true
+
     # Validation For Email
      validates :email, presence: {messages:'Email cannot be blank!'},
      format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i},

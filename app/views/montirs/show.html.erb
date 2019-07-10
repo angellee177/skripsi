@@ -39,6 +39,25 @@
     </table>
     <hr/>
      <%= link_to "Edit Your Account", edit_montir_path(current_montir), class: "btn btn-xs btn-warning" %>
+     <br>
+    </div>
+</div>
+<br>
+<div class="row" style="padding-top:10px">
+    <div class="col-md-8 col-md-offset-2">
+        <table class="table table-striped">
+            <thead> 
+                <th>ID Pelanggan</th>
+                <th>Nama Pelanggan</th>
+                <th>Detail</th>
+                <th>Plat</th>
+                <th>Total</th>
+                <th>Nama Montir</th>
+            </thead>
+            <tbody>
+                <%= render 'sales/sale', obj:@montir.sales %>
+            </tbody>
+        </table>
     </div>
 </div>
 

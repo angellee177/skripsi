@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  montir: one
+  sale: one
+  subtotal: 9.99
+  potongan: 9.99
+  bonus: 9.99
+  total: 9.99
+
+two:
+  montir: two
+  sale: two
+  subtotal: 9.99
+  potongan: 9.99
+  bonus: 9.99
+  total: 9.99
