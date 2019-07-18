@@ -20,8 +20,10 @@ class MontirsController < ApplicationController
     end
 
     def show
-
-    end
+        @montir_sales = @montir.sales.all.to_a
+        @montir_sale_months = @montir_sales.group_by {|t| t.created_at.beginning_of_month}
+        @montir.gaji = @montir.gaji_all  
+    end    
 
     def edit
 
@@ -48,7 +50,9 @@ class MontirsController < ApplicationController
     end
 
     def montir_params
-        params.require(:montir).permit(:name, :username, :tanggal_lahir, :picture, :password, :password_confirmation)
+        params.require(:montir).permit(:name, :username, :tanggal_lahir, 
+            :picture, :password, :password_confirmation, :bonus, :potongan, 
+            :sale_id)
     end
 
 end

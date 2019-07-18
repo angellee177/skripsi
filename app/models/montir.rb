@@ -34,4 +34,42 @@ class Montir < ApplicationRecord
 
     # Upload Picture with Active storage
     has_one_attached :picture
+
+
+    # Perhitungan total Komisi
+    def subtotal
+        self.sales.map { |i| i.commision }  
+    end
+
+    def subtotals #setelah di ambil data Komisi
+        if subtotal.blank?  
+        0
+        else
+            subtotal.sum
+        end
+    end
+
+    # Untuk pemotongan pinjaman atau lain nya
+    def potong_gaji
+        if potongan.blank? 
+        0
+        else 
+            subtotals - potongan
+        end
+    end
+
+    def bonus_kerajinan
+        if bonus.blank?  
+        0
+        else
+            subtotals+bonus
+        end
+    end
+    
+    def gaji_all 
+        bonus_kerajinan+potong_gaji
+    end 
+
+    # Pencarian data SALES berdasarkan Created_at
+   
 end

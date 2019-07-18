@@ -72,3 +72,6 @@ gem 'public_activity'
 # Generate Pdf
 gem 'wicked_pdf', '~> 1.1'
 gem 'wkhtmltopdf-binary'
+
+# Group Data
+gem 'groupdate'

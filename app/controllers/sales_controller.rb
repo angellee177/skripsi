@@ -4,13 +4,14 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sales = Sale.all
+    @sales = Sale.all.to_a
+    @sale_months = @sales.group_by {|t| t.created_at.beginning_of_month}
   end
 
   # GET /sales/1
   # GET /sales/1.json
   def show
-    respond_to do |format|
+      respond_to do |format|
       format.html
       format.json
       format.pdf do 

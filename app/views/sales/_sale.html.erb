@@ -1,18 +1,30 @@
-    <% obj.each do |sale| %>
+<tbody>    
+    <% obj.each do |month, sales| %>  
+      <strong><%= month.strftime('%B %Y') %></strong>
+      <hr>
       <tr>
-        <td><%= sale.pelanggan.code%></td>
-        <td><%= sale.pelanggan.nama%></td>
-        <td><%= sale.name %></td>
-        <td><%= sale.no_kendaraan %></td>
-        <td><%= sale.total_all %></td>
-        <td><%= sale.montir.name %></td>
-        <td><%= link_to 'Show', sale, class:'btn btn-success', style:'color:white'%></td>
-        <td><%= link_to 'Edit', edit_sale_path(sale),class:'btn btn-default' %></td>
-        <td>
+        <% for sale in sales %>
+        <div>
+          <div class="container">
+            <div class="row">
+                <p><strong>NIP:</strong><%= sale.pelanggan.code%></p>
+            </div>
+            <%= sale.pelanggan.nama%>
+            <%= sale.name %></td>
+            <%= sale.no_kendaraan %>
+            <%= sale.total_all %>
+            <%= sale.montir.name %>
+            <%= sale.commision %>
+            <%= link_to 'Show', sale, class:'btn btn-success', style:'color:white'%>
+            <%= link_to 'Edit', edit_sale_path(sale),class:'btn btn-default' %>
             <%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' },
-            class:'btn btn-danger', style:'color:white'%>
-        </td>
+              class:'btn btn-danger', style:'color:white'%>
+          </div>
+        </div>
+       
+        <% end %>
       </tr>
       <tr>
       </tr>
     <% end %>
+</tbody>

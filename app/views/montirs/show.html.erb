@@ -1,3 +1,4 @@
+<p id="notice"><%= notice %></p>
 <div class="w3-container w3-teal">
     <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
     <div class="w3-container">
@@ -44,19 +45,43 @@
 </div>
 <br>
 <div class="row" style="padding-top:10px">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-8 col-md-offset-2" >
         <table class="table table-striped">
-            <thead> 
-                <th>ID Pelanggan</th>
-                <th>Nama Pelanggan</th>
-                <th>Detail</th>
-                <th>Plat</th>
-                <th>Total</th>
-                <th>Nama Montir</th>
-            </thead>
+            <p>
+               
+            </p>
             <tbody>
-                <%= render 'sales/sale', obj:@montir.sales %>
+                <div class="container">
+                    <%= render 'sales/sale', obj:@montir_sale_months %>
+                </div>
             </tbody>
+
+              <%# Memunculkan Penggajian %>
+            <%# Showing Total Gaji %>
+            <thead>
+                <tr>
+                    <th>Subtotal Gaji :</th>
+                    <th>Rp</th>
+                    <th><%= @montir.subtotals %></th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <th>Bonus :</th>
+                    <th>Rp</th>
+                    <th><%= @montir.bonus %></th>
+                    <th></th>
+                    <th>Potongan:</th>
+                    <th>Rp</th>
+                    <th><%= @montir.potongan%></th>
+                </tr>
+                <tr>
+                    <th>Total Gaji :</th>
+                    <th>Rp</th>
+                    <th><%= @montir.gaji_all %></th>
+                </tr>
+            </thead>
+
+            <br>
         </table>
     </div>
 </div>
