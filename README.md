@@ -12,11 +12,11 @@ Things you may want to cover:
 * Database creation : Postgresql
 
 * Fitur List : 
-                * Generate Invoice from Sales.
-                * Generate Unique  custom ID for Table Product and Customer ID.
-                * Authentication with Session.
-                * Authorization with Object.
-                * Automatic Calculated for Subtotal, Diskon, Total.
+* Generate Invoice from Sales.
+* Generate Unique  custom ID for Table Product and Customer ID.
+* Authentication with Session.
+* Authorization with Object.
+* Automatic Calculated for Subtotal, Diskon, Total.
                 
 
 
