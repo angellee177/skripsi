@@ -1,6 +1,8 @@
 class Sale < ApplicationRecord
   belongs_to :montir
   belongs_to :pelanggan
+  before_save :commision
+
   
   has_many :items
 
@@ -15,6 +17,10 @@ class Sale < ApplicationRecord
   end  
   
   def commision
-    total_all * 0.2
+    self[:commission] = total_all * 0.2
   end
+
+  # def self.commision_group
+  #   sale.all
+  # end
 end

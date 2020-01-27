@@ -9,7 +9,7 @@ style="display:none" id="mySidebar">
           <% if current_montir.picture.attached? %>
             <%= image_tag url_for(current_montir.picture), size:'150', class:'img rounded-circle'%>
           <% else %>
-              <%= gravatar_for @montir, size: 150 %>
+               <%= link_to gravatar_for(current_montir), montir_path(current_montir) %>
           <% end %>
           <hr/>
         </li>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_083307) do
+ActiveRecord::Schema.define(version: 2019_11_22_053009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -66,11 +66,6 @@ ActiveRecord::Schema.define(version: 2019_07_11_083307) do
     t.index ["sale_id"], name: "index_items_on_sale_id"
   end
 
-  create_table "montir_salaries", force: :cascade do |t|
-    t.integer "montir_id"
-    t.integer "salary_id"
-  end
-
   create_table "montirs", force: :cascade do |t|
     t.string "name"
     t.string "username"
@@ -80,13 +75,12 @@ ActiveRecord::Schema.define(version: 2019_07_11_083307) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
-    t.decimal "gaji"
     t.decimal "potongan"
     t.decimal "bonus"
   end
 
   create_table "pelanggans", force: :cascade do |t|
-    t.bigint "code"
+    t.integer "code"
     t.string "nama"
     t.text "alamat"
     t.bigint "no_telp"
@@ -126,7 +120,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_083307) do
     t.integer "pelanggan_id"
     t.string "no_kendaraan"
     t.decimal "diskon"
-    t.decimal "commission"
+    t.decimal "commission", default: "0.0"
     t.index ["montir_id"], name: "index_sales_on_montir_id"
   end
 

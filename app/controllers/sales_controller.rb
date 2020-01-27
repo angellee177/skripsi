@@ -6,6 +6,14 @@ class SalesController < ApplicationController
   def index
     @sales = Sale.all.to_a
     @sale_months = @sales.group_by {|t| t.created_at.beginning_of_month}
+    @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
+  end
+
+  def group_month
+    @sales = Sale.all.to_a
+    @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
+    # binding.pry
+    render json: { data: @sale_commisions }
   end
 
   # GET /sales/1

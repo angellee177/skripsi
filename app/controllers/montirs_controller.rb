@@ -22,7 +22,8 @@ class MontirsController < ApplicationController
     def show
         @montir_sales = @montir.sales.all.to_a
         @montir_sale_months = @montir_sales.group_by {|t| t.created_at.beginning_of_month}
-        @montir.gaji = @montir.gaji_all  
+        @montir_subtotals = @montir.sales.group_by_month(:created_at).sum(:commission)
+        @montir_gaji = @montir.gaji_all 
     end    
 
     def edit
@@ -50,7 +51,7 @@ class MontirsController < ApplicationController
     end
 
     def montir_params
-        params.require(:montir).permit(:name, :username, :tanggal_lahir, 
+        params.require(:montir).permit(:name, :username, :email, :tanggal_lahir, 
             :picture, :password, :password_confirmation, :bonus, :potongan, 
             :sale_id)
     end

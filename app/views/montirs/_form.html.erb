@@ -4,6 +4,17 @@
     <div class="row">
         <div class="col-md-12">
             <%= form_for(@montir, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+                <% if @montir.errors.any? %>
+                     <div id="error_explanation">
+                        <h2><%= pluralize(@montir.errors.count, "error") %> prohibited this pelanggan from being saved:</h2>
+
+                        <ul>
+                        <% @montir.errors.full_messages.each do |message| %>
+                            <li><%= message %></li>
+                        <% end %>
+                        </ul>
+                    </div>
+                <% end %>
                 <%# Montir Upload Picture %>
                 <div class="form-group">
                     <div class="control-label col-md-2">
@@ -20,6 +31,15 @@
                     </div>
                     <div class="col-md-8">
                         <%= f.text_field :name, class:'form-control', type:'text', placeholder:'Enter Your Name Here', autofocus: true%>
+                    </div>
+                </div>
+                <%# Montir Username Column %>
+                <div class="form-group">
+                    <div class="control-label col-md-2">
+                        <%= f.label :username %>
+                    </div>
+                    <div class="col-md-8">
+                        <%= f.text_field :username, class:'form-control', placeholder:'Enter your Email Here'%>
                     </div>
                 </div>
                 <%# Montir Email Column %>

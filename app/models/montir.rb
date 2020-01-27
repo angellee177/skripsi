@@ -38,7 +38,7 @@ class Montir < ApplicationRecord
 
     # Perhitungan total Komisi
     def subtotal
-        self.sales.map { |i| i.commision }  
+        self.sales.map { |i| i.commision }
     end
 
     def subtotals #setelah di ambil data Komisi
@@ -54,22 +54,25 @@ class Montir < ApplicationRecord
         if potongan.blank? 
         0
         else 
-            subtotals - potongan
+            potongan
         end
     end
 
     def bonus_kerajinan
         if bonus.blank?  
-        0
+         subtotals #If bonus blank, Bonus kerajinan will view subtotals
         else
             subtotals+bonus
         end
     end
     
     def gaji_all 
-        bonus_kerajinan+potong_gaji
-    end 
-
-    # Pencarian data SALES berdasarkan Created_at
+        if potongan.blank?
+            bonus_kerajinan #if potongan blank, only calculate Subtotals from "Bonus Kerajinan"
+        else
+            bonus_kerajinan-potongan
+   
+        end 
+    end
    
 end
