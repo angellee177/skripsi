@@ -1,15 +1,38 @@
-<div class="w3-teal">
-  <button class="w3-button w3-teal w3-xlarge" onclick="w3_open()">☰</button>
+<div class="w3-container w3-black">
+  <button class="w3-button w3-black w3-xlarge" onclick="w3_open()">☰</button>
   <div class="w3-container">
-    <%= render 'templates/page_title', title:"Dashboard" %>
+    <%= render 'templates/page_title', title:"Service List" %>
+  </div>
+</div>
+
+<div class="jumbotron" style="text-align:center">
+  <div>
+    <h2 style="color:black;margin-right:80%;margin-top:5%">GARAGE</h2>
+  </div>
+  <br>
+  <br>
+  <p style="color:black;width:max-content;font-size:30px;margin-right:0px"><b>KEEP CALM</b></p>
+  <br>
+    <p style="color:black;width:max-content;font-size:28px;margin-right:90%"><b>WE CAN FIX IT</b></p>
+  <div class="row">
+    <%= link_to "Create New Account", signup_path , class:'btn btn-warning btn-lg', style:"color:white;margin-top:30px"%>
   </div>
 </div>
 <%# Content %>
-<div class="container">
-  <h1>Welcome to Bootstrap 4</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et,  
-     distinctio perspiciatis, fuga minus facilis ea quae qui laborum 
-     cupiditate accusamus.
-  </p>
-  <button class="btn btn-primary">Button</button>
+<div class="row">
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-info btn-lg" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-info btn-lg" href="#" role="button">View details &raquo;</a></p>
+       </div>
+        <div class="col-md-4">
+          <h2>Heading</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-info btn-lg" href="#" role="button">View details &raquo;</a></p>
+        </div>
 </div>
