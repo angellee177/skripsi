@@ -17,10 +17,6 @@ class Sale < ApplicationRecord
   end  
   
   def commision
-    self[:commission] = total_all * 0.2
+    total_all * 0.2
   end
-
-  # def self.commision_group
-  #   sale.all
-  # end
 end

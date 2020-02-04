@@ -16,14 +16,18 @@
   </head>
 
   <body>
-  <!-- Render Side Bar -->
-  <%= render 'templates/sidebar'%>
-
-  <!-- Page Content -->
-    <div class="w3-container">
-      <%= yield %>
+    <%# Sidebar %>
+    <%= render 'templates/sidebar'%>
+    
+    <%= render 'shared/messages'%>
+      
+    <div class="container">
+        <%= yield %>
     </div>
-
+    
+    <%# Footer %>
+    <%= render 'templates/footer' %>
+  
   <%# Script for open the side bar %>
     <script>
     function w3_open() {

@@ -40,3 +40,26 @@
     text-align: left;
     padding: 8px;
   }
+
+  .jumbotron {
+    background-image: asset-url('bg1.jpg');
+    background-size: cover;
+    height: 450px;
+    opacity: 0.75;
+}
+
+.jumbotron h1, .jumbotron h2 {
+            color: black;
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+            font-weight: bold;
+}
+
+.container {
+    padding-left: 0px;
+}
+
+.w3-sidebar {
+    background-color: #ffff33;
+}

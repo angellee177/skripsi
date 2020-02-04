@@ -21,8 +21,9 @@ class MontirsController < ApplicationController
 
     def show
         @montir_sales = @montir.sales.all.to_a
-        @montir_sale_months = @montir_sales.group_by {|t| t.created_at.beginning_of_month}
+        @montir_sale_months = @montir_sales.group_by {|t| t.created_at.beginning_of_month};
         @montir_subtotals = @montir.sales.group_by_month(:created_at).sum(:commission)
+        @montir_subtotal = @montir.subtotals
         @montir_gaji = @montir.gaji_all 
     end    
 
