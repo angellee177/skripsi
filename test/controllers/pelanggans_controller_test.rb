@@ -17,7 +17,7 @@ class PelanggansControllerTest < ActionDispatch::IntegrationTest
 
   test "should create pelanggan" do
     assert_difference('Pelanggan.count') do
-      post pelanggans_url, params: { pelanggan: { alamat: @pelanggan.alamat, d_kerusakan: @pelanggan.d_kerusakan, id_montir: @pelanggan.id_montir, nama: @pelanggan.nama, nik: @pelanggan.nik, no_kendaraan: @pelanggan.no_kendaraan, no_telp: @pelanggan.no_telp, status: @pelanggan.status } }
+      post pelanggans_url, params: { pelanggan: { alamat: @pelanggan.alamat, d_kerusakan: @pelanggan.d_kerusakan, montir_id: @pelanggan.montir_id, nama: @pelanggan.nama, nip: @pelanggan.nip, no_kendaraan: @pelanggan.no_kendaraan, no_telp: @pelanggan.no_telp, status: @pelanggan.status } }
     end
 
     assert_redirected_to pelanggan_url(Pelanggan.last)
@@ -34,7 +34,7 @@ class PelanggansControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update pelanggan" do
-    patch pelanggan_url(@pelanggan), params: { pelanggan: { alamat: @pelanggan.alamat, d_kerusakan: @pelanggan.d_kerusakan, id_montir: @pelanggan.id_montir, nama: @pelanggan.nama, nik: @pelanggan.nik, no_kendaraan: @pelanggan.no_kendaraan, no_telp: @pelanggan.no_telp, status: @pelanggan.status } }
+    patch pelanggan_url(@pelanggan), params: { pelanggan: { alamat: @pelanggan.alamat, d_kerusakan: @pelanggan.d_kerusakan, montir_id: @pelanggan.montir_id, nama: @pelanggan.nama, nip: @pelanggan.nip, no_kendaraan: @pelanggan.no_kendaraan, no_telp: @pelanggan.no_telp, status: @pelanggan.status } }
     assert_redirected_to pelanggan_url(@pelanggan)
   end
 

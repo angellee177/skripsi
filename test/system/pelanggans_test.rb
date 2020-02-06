@@ -16,9 +16,9 @@ class PelanggansTest < ApplicationSystemTestCase
 
     fill_in "Alamat", with: @pelanggan.alamat
     fill_in "D kerusakan", with: @pelanggan.d_kerusakan
-    fill_in "Id montir", with: @pelanggan.id_montir
+    fill_in "Id montir", with: @pelanggan.montir_id
     fill_in "Nama", with: @pelanggan.nama
-    fill_in "Nik", with: @pelanggan.nik
+    fill_in "Nik", with: @pelanggan.nip
     fill_in "No kendaraan", with: @pelanggan.no_kendaraan
     fill_in "No telp", with: @pelanggan.no_telp
     fill_in "Status", with: @pelanggan.status
@@ -34,9 +34,9 @@ class PelanggansTest < ApplicationSystemTestCase
 
     fill_in "Alamat", with: @pelanggan.alamat
     fill_in "D kerusakan", with: @pelanggan.d_kerusakan
-    fill_in "Id montir", with: @pelanggan.id_montir
+    fill_in "Id montir", with: @pelanggan.montir_id
     fill_in "Nama", with: @pelanggan.nama
-    fill_in "Nik", with: @pelanggan.nik
+    fill_in "Nik", with: @pelanggan.nip
     fill_in "No kendaraan", with: @pelanggan.no_kendaraan
     fill_in "No telp", with: @pelanggan.no_telp
     fill_in "Status", with: @pelanggan.status
