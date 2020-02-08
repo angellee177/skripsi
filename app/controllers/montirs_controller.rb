@@ -45,6 +45,10 @@ class MontirsController < ApplicationController
         flash[:danger] = "Montir account and all associated pelanggans have been deleted"
         redirect_to montirs_path
     end
+    
+    def monthly_report
+        @montir = Montir.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
+    end
 
     private
     def set_montir

@@ -4,8 +4,8 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sales = Sale.all.to_a
-    @sale_months = @sales.group_by {|t| t.created_at.beginning_of_month}
+    @sale = Sale.all
+    @sale_months = Sale.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
     @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
   end
 
@@ -78,6 +78,10 @@ class SalesController < ApplicationController
       format.html { redirect_to sales_url, notice: 'Sale was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def monthly_report
+    @sale = Sale.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
   end
 
   private

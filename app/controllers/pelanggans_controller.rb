@@ -61,6 +61,10 @@ class PelanggansController < ApplicationController
     end
   end
 
+  def monthly_report
+    @pelanggan = Pelanggan.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pelanggan
