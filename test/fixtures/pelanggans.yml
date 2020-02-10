@@ -1,21 +1,28 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  nik: 1
-  nama: MyString
+  nama: user1
   alamat: MyText
-  no_telp: 1
+  no_telp: 1234566
   no_kendaraan: MyString
   d_kerusakan: MyText
-  id_montir: 1
+  montir_id: 1
   status: MyString
 
 two:
-  nik: 1
-  nama: MyString
+  nama: user2
   alamat: MyText
-  no_telp: 1
+  no_telp: 1234
   no_kendaraan: MyString
   d_kerusakan: MyText
-  id_montir: 1
+  montir_id: 1
+  status: MyString
+
+three:
+  nama: user3
+  alamat: MyText
+  no_telp: 1234
+  no_kendaraan: MyString
+  d_kerusakan: MyText
+  montir_id: 1
   status: MyString

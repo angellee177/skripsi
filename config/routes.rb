@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   delete '/logout', to:'sessions#destroy'
 
   get '/salary', to: 'sales#group_month'
+
+  get '/report/montir', to: 'montirs#monthly_report'
 end
