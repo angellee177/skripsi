@@ -1,6 +1,8 @@
-<div class="w3-container w3-black">
-  <%= render 'templates/page_title', 
-title:"Edit Data Pelanggan" %>
+<div class="w3-black w3-container">
+  <button class="w3-button w3-black w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Edit Data Pelanggan" %>
+  </div>
 </div>
 
 <%= render 'form', pelanggan: @pelanggan %>

@@ -1,5 +1,9 @@
-<h1>Editing Sale</h1>
-
+<div class="w3-black w3-container">
+  <button class="w3-button w3-black w3-xlarge" onclick="w3_open()">☰</button>
+  <div class="w3-container">
+    <%= render 'templates/page_title', title:"Edit Data Sales" %>
+  </div>
+</div>
 <%= render 'form', sale: @sale %>
 
 <%= link_to 'Show', @sale, class:'btn btn-info' %> |

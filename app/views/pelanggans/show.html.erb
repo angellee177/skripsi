@@ -7,32 +7,35 @@
   <div class="container">
     <div class="well col-md-8 col-md-offset-2">
       <p id="notice"><%= notice %></p>
-      <table class="center description" >
-        <tbody>
-          <%# Column Nomor Identitas Pelanggan sesuai KTP %>
-          <tr>
-            <td><strong>Nomor Identitas Pelanggan</strong></td>
-            <td><%= @pelanggan.code %></td>
-          </tr>
+      <div class="pull-left">
+          <table class="center description" >
+            <tbody>
+              <%# Column Nomor Identitas Pelanggan sesuai KTP %>
+              <tr>
+                <td><strong>Nomor Identitas Pelanggan</strong></td>
+                <td><%= @pelanggan.code %></td>
+              </tr>
 
-          <%# Column Nama Pelanggan %>
-          <tr>
-            <td><strong>Nama</strong></td>
-            <td><%= @pelanggan.nama %></td>
-          </tr>
+              <%# Column Nama Pelanggan %>
+              <tr>
+                <td><strong>Nama</strong></td>
+                <td><%= @pelanggan.nama %></td>
+              </tr>
 
-          <%# Column Alamat %>
-          <tr>
-            <td><strong>Alamat</strong></td>
-            <td><%= @pelanggan.alamat %></td>
-          </tr>
+              <%# Column Alamat %>
+              <tr>
+                <td><strong>Alamat</strong></td>
+                <td><%= @pelanggan.alamat %></td>
+              </tr>
 
-          <%# Column No_telp %>
-          <tr>
-            <td><strong>No telp</strong></td>
-            <td><%= @pelanggan.no_telp %></td>
-          </tr>
-          <hr/>
+              <%# Column No_telp %>
+              <tr>
+                <td><strong>No telp</strong></td>
+                <td><%= @pelanggan.no_telp %></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
           <div class="pull-right">
             <p class="center">
                 <em>Created By:</em>
@@ -53,11 +56,11 @@
                 </div>
             </p>
           </div>
-          
           <%# Button Edit %>
-            <div class="recipe-actions">
-                <%= link_to 'Edit', edit_pelanggan_path(@pelanggan), class:'btn btn-info' %>
-                <%= link_to 'Back', pelanggans_path, class:'btn btn-default' %>
-            </div>
+        <div class="recipe-actions">
+            <%=   link_to 'Edit', edit_pelanggan_path(@pelanggan), class:'btn btn-info' %>
+            <%= link_to 'Back', pelanggans_path, class:'btn btn-default' %>
+        </div>
     </div>
+    
   </div>

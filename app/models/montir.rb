@@ -6,9 +6,6 @@ class Montir < ApplicationRecord
     # Association With Sales
     has_many :sales, dependent: :destroy
 
-    # Association Many to Many between Montir with Salary
-    has_many :montir_salaries
-    has_many :salaries, through: :montir_salaries
 
     
     # For Validation these column can't be Blank

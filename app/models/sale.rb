@@ -17,6 +17,6 @@ class Sale < ApplicationRecord
   end  
   
   def commision
-    total_all * 0.2
+    total_all * 0.15
   end
 end

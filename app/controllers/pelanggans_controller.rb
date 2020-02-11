@@ -73,6 +73,6 @@ class PelanggansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pelanggan_params
-      params.require(:pelanggan).permit(:nik, :nama, :alamat, :no_telp, :no_kendaraan, :d_kerusakan, :id_montir, :status)
+      params.require(:pelanggan).permit(:code, :nama, :alamat, :no_telp, :no_kendaraan, :d_kerusakan, :montir_id, :status)
     end
 end

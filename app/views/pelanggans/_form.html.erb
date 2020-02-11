@@ -26,7 +26,7 @@
     <%= form.text_field :no_telp,class:'form-control', placeholder:'Masukkan Nomor Telephone Pelanggan'%>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit(@pelanggan.new_record? ? "")%>
   </div>
 <% end %>
 </div>

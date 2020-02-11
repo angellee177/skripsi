@@ -40,5 +40,11 @@ class MontirTest < ActiveSupport::TestCase
     end
   end
 
-  
+  test "email should be lower case before save" do
+    mixed_email = "AnGeLLEe@yoPmaIl.com"
+    @montir.email = mixed_email
+    @montir.save
+    assert_equal mixed_email.downcase, @montir.reload.email
+  end
+
 end

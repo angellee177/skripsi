@@ -77,3 +77,6 @@ gem 'wkhtmltopdf-binary'
 
 # Group Data
 gem 'groupdate'
+
+# Gem for integration testing''
+gem 'rails-controller-testing'
