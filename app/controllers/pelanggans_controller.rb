@@ -62,7 +62,7 @@ class PelanggansController < ApplicationController
   end
 
   def monthly_report
-    @pelanggan = Pelanggan.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
+    @pelanggan = Pelanggan.where(:created_at => (Time.now - 30.day)..Time.now.midnight)
   end
 
   private

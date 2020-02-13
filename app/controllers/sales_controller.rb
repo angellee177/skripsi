@@ -5,7 +5,7 @@ class SalesController < ApplicationController
   # GET /sales.json
   def index
     @sale = Sale.all
-    @sale_months = Sale.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
+    @sale_months = @sale.group_by {|t| t.created_at.beginning_of_month}
     @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
   end
 
@@ -13,7 +13,7 @@ class SalesController < ApplicationController
     @sales = Sale.all.to_a
     @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
     # binding.pry
-    render json: { data: @sale_commisions }
+    render json: { data: @sales }
   end
 
   # GET /sales/1
@@ -81,7 +81,9 @@ class SalesController < ApplicationController
   end
 
   def monthly_report
-    @sale = Sale.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
+    @sale = Sale.all.to_a
+    @sale_months = @sale.group_by {|t| t.created_at.beginning_of_month}
+    render json: { data: @sale_months }
   end
 
   private

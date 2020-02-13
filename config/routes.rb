@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to:'sessions#destroy'
 
-  get '/salary', to: 'sales#group_month'
+  get '/salary', to: 'sales#monthly_report'
 
   get '/report/montir', to: 'montirs#monthly_report'
 end

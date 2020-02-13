@@ -1,0 +1,8 @@
+<%# Report %>
+<tbody>
+  <% @montirs.each do |montir| %>  
+    <%= montir.created_at %>
+    <%= montir.name %>
+    <%= montir.bonus %>
+  <% end %>
+</tbody>

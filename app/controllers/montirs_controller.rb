@@ -47,8 +47,9 @@ class MontirsController < ApplicationController
     end
     
     def monthly_report
-        @montir = Montir.where(:created_at => (Time.now.midnight - 30.day)..Time.now.midnight)
-        render ''
+        @montir = Montir.all
+        @montirs = @montir.sales.all
+        render json: {data: @montirs}
     end
 
     private
