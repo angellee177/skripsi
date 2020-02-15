@@ -7,7 +7,7 @@ class Montir < ApplicationRecord
     has_many :sales, dependent: :destroy
 
 
-    
+    # test
     # For Validation these column can't be Blank
     validates :name, presence: {messages:"Montir Name can't be Blank!"},
     length: {maximum: 30, messages:"Montir name Max. is 30 Character!"}

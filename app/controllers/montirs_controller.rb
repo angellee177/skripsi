@@ -22,9 +22,19 @@ class MontirsController < ApplicationController
     def show
         @montir_sales = @montir.sales.all.to_a
         @montir_sale_months = @montir_sales.group_by {|t| t.created_at.beginning_of_month};
-        @montir_subtotals = @montir.sales.group_by_month(:created_at).sum(:commission)
-        @montir_subtotal = @montir.subtotals
-        @montir_gaji = @montir.gaji_all 
+        @montir_subtotals = @montir.sales.group_by_month(:created_at).sum(:commission);
+        @montir_subtotal = @montir.subtotals;
+        @montir_gaji = @montir.gaji_all; 
+        @date = Date.today.strftime("%m/%Y");
+        respond_to do |format|
+            format.html
+            format.json
+            format.pdf do
+                render template: 'montirs/show.html.erb', layout: 'montir.pdf.html',
+                pdf: "#{@montir.name}(#{@date})-slip-gaji",
+                disposition: :inline
+            end
+        end
     end    
 
     def edit

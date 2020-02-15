@@ -80,9 +80,11 @@
                     <th><%= @montir.gaji_all %></th>
                 </tr>
             </thead>
-
             <br>
         </table>
+        <div class="recipe-actions">
+            <%= link_to 'Print Slip Gaji', montir_path(@montir, :format => :pdf), class:'btn btn-xs btn-success' %>
+        </div>
     </div>
 </div>
 

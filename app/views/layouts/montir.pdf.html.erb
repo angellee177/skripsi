@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Slip Gaji</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <style>
+  td, p {
+      font-size:12pt;
+  }
+  </style>
+</head>
+<body>
+  <div class='container'>
+    <h2 style="text-align:center">Bengkel Mobil Jaya</h2>
+    <p style="text-align:center">Jl.Makam Pahlawan, Km.5, <br>Tanjung Pinang, Kepulauan Riau</p>
+      <br>
+      <ul>
+          <li style="float:right">  
+              <strong>Nomor ID Service:</strong>
+              <p><%= @montir.id %></p>
+          </li>
+          <br>
+          <li>
+            <h4><strong>Slip Gaji &nbsp <%= @date %></strong> </h4>
+            <hr>
+          </li>
+        </ul>
+         <div class="col-md-8 col-md-offset-2">
+            <%# Detail Data %>
+            <table class="pull-left" style="border:none">  
+                <tr>
+                    <td><strong>Nama</strong></td>
+                    <td><%= @montir.name %></td>
+                </tr>
+            </table>
+            <p style="padding-bottom:30px"></p>
+            <%# Rincian Penjualan %>
+            <table class="table table-striped">
+            <%# Showing Total Gaji %>
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Keterangan</th>
+                    <th>Jumlah</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Subtotal</td>
+                    <td>Rp <%= @montir_subtotal %>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Bonus</td>
+                    <td>Rp <%= @montir.bonus %>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Potongan</td>
+                    <td>Rp <%= @montir.potongan %>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td></td>
+                    <td>Rp <%= @montir.gaji_all %>
+                </tr>
+            </tbody>
+            <br>
+        </table>
+            <hr/>
+            <%# Showing Montir and create at %>
+            <div class="pull-right">
+                    <p class="center">
+                        <em>Tanda tangan</em>
+                    </p>
+                    <br>
+                    <p class="center">
+                        Pimpinan
+                    </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
