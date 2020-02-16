@@ -8,9 +8,14 @@
             <td><%= sale.montir.name %></td>
             <td><%= sale.commision %></td>
             <td><%= link_to 'Show', sale, class:'btn btn-success', style:'color:white'%></td>
-            <td><%= link_to 'Edit', edit_sale_path(sale),class:'btn btn-default' %></td>
-            <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' },
-              class:'btn btn-danger', style:'color:white'%></td>
+            <% if logged_in? && (current_montir == sale.montir || current_montir.admin?) %>
+              <td><%= link_to 'Edit', edit_sale_path(sale),class:'btn btn-default' %></td>
+              <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' },
+                class:'btn btn-danger', style:'color:white'%></td>
+            <% else %>
+              <td></td>
+              <td></td>
+            <% end %>
       </tr>
     <% end %>
 </tbody>

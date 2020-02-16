@@ -4,16 +4,21 @@ class SalesController < ApplicationController
   # GET /sales
   # GET /sales.json
   def index
-    @sale = Sale.all
-    @sale_months = @sale.group_by {|t| t.created_at.beginning_of_month}
+    @sale            = Sale.all
+    @sale_list       = @sale.group_by { |t| t.montir.name };
+    @sale_month      = Sale.where(:created_at => (Time.now - 30.day)..Time.now.midnight);
+    @commission      = Sale.sum(:commission)
     @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
-  end
-
-  def group_month
-    @sales = Sale.all.to_a
-    @sale_commisions = Sale.group_by_month(:created_at).sum(:commission)
-    # binding.pry
-    render json: { data: @sales }
+    @date = Date.today.strftime("%m/%Y");
+    respond_to do |format|
+      format.html
+      format.json
+      format.pdf do 
+        render template:'sales/index.html.erb', layout:'laporan_penggajian.pdf.html', 
+        pdf: "Laporan Penggajian-#{@date}",
+        disposition: :inline
+      end
+    end
   end
 
   # GET /sales/1
@@ -45,6 +50,7 @@ class SalesController < ApplicationController
     @sale = Sale.new(sale_params)
     @sale.montir = current_montir
     @sale.total = @sale.total_all
+    @sale.commission = @sale.commision
     respond_to do |format|
       if @sale.save
         format.html { redirect_to @sale, notice: 'Sale was successfully created.' }
@@ -81,11 +87,18 @@ class SalesController < ApplicationController
   end
 
   def monthly_report
-    @sale = Sale.all.to_a
-    @sale_months = @sale.group_by {|t| t.created_at.beginning_of_month}
-    render json: { data: @sale_months }
+    @sale_month = Sale.where(:created_at => (Time.now - 30.day)..Time.now);
+    @date = Date.today.strftime("%m/%Y");
+    respond_to do |format|
+        format.html
+        format.json
+        format.pdf do
+            render template: 'sales/sales_report.html.erb', layout: 'sales_monthly.pdf.html',
+            pdf: "Laporan Penjualan-#{@date}",
+            disposition: :inline
+        end
+    end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_sale

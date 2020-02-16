@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
   belongs_to :montir
   
-  has_many :items
+  has_many :items, dependent: :destroy
 
   # validation product name
   validates :name, presence: {messages:"Products Name can't be Blank!"},

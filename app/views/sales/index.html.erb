@@ -29,6 +29,9 @@
 <br>
 <div class="recipe-actions">
   <%= link_to 'New Sale', new_sale_path, class:'btn btn-primary', style:'color:white'  %>
-  <%# <%= link_to 'Print Report', sale_path(@sales, :format => :pdf), class:'btn btn-success' %> %>
+  <% if logged_in? && (current_montir.admin?) %>
+    <%= link_to 'Laporan Penggajian', sales_path(@sale, :format => :pdf), class:'btn btn-success' %>
+    <%= link_to 'Laporan Sales', monthly_path(@sale_month, :format => :pdf), class:'btn btn-warning' %>
+  <% end %>
 </div>
 

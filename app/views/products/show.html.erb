@@ -55,8 +55,12 @@
 
   <%# Button Edit %>
   <div class="recipe-actions">
-    <%= link_to 'Edit', edit_product_path(@product), class:'btn btn-info' %> |
-    <%= link_to 'Back', products_path, class:'btn btn-default' %>
+    <% if logged_in? && (current_montir == @product.montir || current_montir.admin?) %>
+      <%= link_to 'Edit', edit_product_path(@product), class:'btn btn-info' %> |
+      <%= link_to 'Back', products_path, class:'btn btn-default' %>
+     <% else %>
+        <%= link_to 'Back', products_path, class:'btn btn-xs btn-default' %>
+    <% end %>
   </div>
 </div>
 

@@ -4,7 +4,7 @@ class Sale < ApplicationRecord
   before_save :commision
 
   
-  has_many :items
+  has_many :items, dependent: :destroy
 
   accepts_nested_attributes_for :items, allow_destroy: true  
   
@@ -12,11 +12,25 @@ class Sale < ApplicationRecord
     self.items.map { |i| i.subtotal }  
   end  
    
+  def diskonan
+    if diskon.blank?  
+      0
+    else
+      diskon
+    end
+  end  
+
   def total_all  
-    subtotals.sum - diskon
+    subtotals.sum - diskonan
   end  
   
   def commision
     total_all * 0.15
   end
+
+  def commision_total
+    commision.sum 
+  end
+
+
 end

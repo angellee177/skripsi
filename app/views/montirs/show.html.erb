@@ -83,7 +83,9 @@
             <br>
         </table>
         <div class="recipe-actions">
-            <%= link_to 'Print Slip Gaji', montir_path(@montir, :format => :pdf), class:'btn btn-md btn-success' %>
+            <% if logged_in? && (current_montir.admin?) %>
+                <%= link_to 'Print Slip Gaji', montir_path(@montir, :format => :pdf), class:'btn btn-md btn-success' %>
+            <% end %>
         </div>
     </div>
 </div>

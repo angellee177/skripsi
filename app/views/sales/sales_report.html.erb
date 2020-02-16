@@ -1,9 +1,8 @@
 <tbody>    
-    <% obj.each do |month, sales| %>  
-      <strong><%= month.strftime('%B %Y') %></strong>
+    <% @sale_month.each do |sale| %>  
+      <strong><%= @date %></strong>
       <hr>
       <tr>
-        <% for sale in sales %>
         <div>
           <div class="container">
             <div class="row">
@@ -15,9 +14,8 @@
             <%= sale.total_all %>
             <%= sale.montir.name %>
             <%= sale.commision %>
+          </div>
         </div>
-          <%# <%= @sale_commisions%>
-        <% end %>
       </tr>
       <tr>
       </tr>

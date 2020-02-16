@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_020214) do
+ActiveRecord::Schema.define(version: 2020_02_16_062251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_020214) do
     t.string "email"
     t.decimal "potongan"
     t.decimal "bonus"
+    t.boolean "admin", default: false
   end
 
   create_table "pelanggans", force: :cascade do |t|

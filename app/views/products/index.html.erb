@@ -24,11 +24,16 @@
         <td><%= product.name %></td>
         <td><%= product.price %></td>
         <td><%= link_to 'Show', product, class:'btn btn-success', style:'color:white' %></td>
-        <td><%= link_to 'Edit', edit_product_path(product), class:'btn btn-default' %></td>
-        <td>
-            <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' },
-            class:'btn btn-danger', style:'color:white' %>
-        </td>
+         <% if logged_in? && current_montir.admin? %>   
+          <td><%= link_to 'Edit', edit_product_path(product), class:'btn btn-default' %></td>
+          <td>
+              <%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' },
+              class:'btn btn-danger', style:'color:white' %>
+          </td>
+         <% else %>
+            <td></td>
+            <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

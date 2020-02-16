@@ -39,7 +39,7 @@
                         <%= f.label :username %>
                     </div>
                     <div class="col-md-8">
-                        <%= f.text_field :username, class:'form-control', placeholder:'Enter your Email Here'%>
+                        <%= f.text_field :username, class:'form-control', placeholder:'Enter your Username Here'%>
                     </div>
                 </div>
                 <%# Montir Email Column %>
@@ -79,22 +79,24 @@
                         <%= f.password_field :password_confirmation, class:'form-control', placeholder:'Confirm your Password Here'%>
                     </div>
                 </div>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :potongan %>
+                <% if logged_in? && ( current_montir.admin? ) %>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            <%= f.label :potongan %>
+                        </div>
+                        <div class="col-md-8">
+                            <%= f.text_field :potongan, class:'form-control', placeholder:'potongan gaji'%>
+                        </div>
                     </div>
-                    <div class="col-md-8">
-                        <%= f.text_field :potongan, class:'form-control', placeholder:'potongan gaji'%>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="control-label col-md-2">
-                        <%= f.label :bonus %>
-                    </div>
-                    <div class="col-md-8">
-                        <%= f.text_field :bonus, class:'form-control', placeholder:'bonus'%>
-                    </div>
-                </diV>
+                    <div class="form-group">
+                        <div class="control-label col-md-2">
+                            <%= f.label :bonus %>
+                        </div>
+                        <div class="col-md-8">
+                            <%= f.text_field :bonus, class:'form-control', placeholder:'bonus'%>
+                        </div>
+                    </diV>
+                <% end %>
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <%= f.submit(@montir.new_record? ? "Create my account" : "Update my Account", class:"btn btn-primary btn-lg")%>

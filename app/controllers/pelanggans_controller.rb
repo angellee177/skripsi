@@ -54,10 +54,12 @@ class PelanggansController < ApplicationController
   # DELETE /pelanggans/1
   # DELETE /pelanggans/1.json
   def destroy
-    @pelanggan.destroy
-    respond_to do |format|
-      format.html { redirect_to pelanggans_url, notice: 'Pelanggan was successfully destroyed.' }
-      format.json { head :no_content }
+    if !current_montir.admin?
+      @pelanggan.destroy
+      respond_to do |format|
+        format.html { redirect_to pelanggans_url, notice: 'Pelanggan was successfully destroyed.' }
+        format.json { head :no_content }
+      end
     end
   end
 

@@ -5,9 +5,14 @@
         <td><%= pelanggan.alamat %></td>
         <td><%= pelanggan.no_telp %></td>
         <td><%= link_to 'Show', pelanggan, class:'btn btn-success', style:'color:white' %></td>
-        <td><%= link_to 'Edit', edit_pelanggan_path(pelanggan), class:'btn btn-default' %></td>
-        <td><%= link_to 'Destroy', pelanggan, method: :delete, data: { confirm: 'Are you sure to delete this record?' },
-        class:'btn btn-danger', style:'white' %></td>
+        <% if logged_in? && (current_montir == pelanggan.montir || current_montir.admin?) %>
+          <td><%= link_to 'Edit', edit_pelanggan_path(pelanggan), class:'btn btn-default' %></td>
+          <td><%= link_to 'Destroy', pelanggan, method: :delete, data: { confirm: 'Are you sure to delete this record?' },
+          class:'btn btn-danger', style:'white' %></td>
+         <% else %>
+            <td></td>
+            <td></td>
+        <% end %>
       </tr>
     <% end %>
        

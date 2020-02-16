@@ -6,7 +6,7 @@ class Pelanggan < ApplicationRecord
     before_create :set_code
 
     # Association with Sales Table
-    has_many :Pelanggans
+    has_many :sales, dependent: :destroy
     # For Validation these column can't be Blank
     validates :nama, presence: {messages: "Pelanggan name can't be blank!"},
     length: {maximum:30, messages:"Name Max. Length is 30 character!"}

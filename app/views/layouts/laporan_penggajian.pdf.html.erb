@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Laporan Penggajian</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <style>
+  td, p {
+      font-size:12pt;
+  }
+  </style>
+</head>
+<body>
+  <div class='container'>
+        <%# Detail Nomor Perbaikan %>
+        <h2 style="text-align:center">Bengkel Mobil Jaya</h2>
+        <p style="text-align:center">Jl.Makam Pahlawan, Km.5, <br>Tanjung Pinang, Kepulauan Riau</p>
+        <br>
+        <ul>
+            <li style="float:left">
+                <h3><strong>Laporan Penggajian Bulan</strong></h3>
+                <h5><strong><%= @date %></strong></h5>
+            </li>
+        </ul>
+        <% @sale_list.each do |montir, sales| %>
+                    <table class="pull-left" style="border:none">  
+                        <tr>
+                            <td><h4><strong>Nama</strong>:</h4></td>
+                            <td><h4><%= montir %></h4></td>
+                        </tr>
+                    </table>
+                    <table>
+                        <thead>
+                            <th>Code</th>
+                            <th>Nama Pelanggan</th>
+                            <th>Detail Perbaikan</th>
+                            <th>Komisi</th>
+                        </thead>
+                        <tbody>
+                            <% for sale in sales %>
+                                <tr>
+                                    <td><%= sale.pelanggan.code%></td>
+                                    <td><%= sale.pelanggan.nama%></td>
+                                    <td><%= sale.name %></td>
+                                    <td><%= sale.commision %></td>
+                                </tr>
+                            <% end %>
+                        </tbody>
+                    </table>
+                    <p style="padding-bottom:30px"></p>
+        <% end %>
+         <p class="pull-right">
+            <p><strong>Total Gaji yang Harus di Bayar:</strong></p>
+            <p><%= @commission %>
+        </p>
+        <div class="pull-right">
+                    <p class="center"><em><strong>Tanda tangan</strong></em></p>
+                    <p style="padding-bottom:70px"></p>
+                    <p class="center">Pimpinan</p>
+        </div>
+  </div>
+</body>
+</html>

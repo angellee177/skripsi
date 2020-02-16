@@ -13,6 +13,11 @@ style="display:none" id="mySidebar">
           <% end %>
           <hr/>
         </li>
+        <% if logged_in? && current_montir.admin? %>
+          <li><a href="/montirs" class="w3-bar-item w3-button", style="color:white">Dashboard</a></li>
+        <% else %>
+          <li><a href="/" class="w3-bar-item w3-button", style="color:white">Dashboard</a></li>
+        <% end %>
         <li><%= link_to "View your Profile", montir_path(current_montir), class:"w3-bar-item w3-button", style:'color:white'%></li>
         <li><%= link_to "Edit Your Profile", edit_montir_path(current_montir),class:"w3-bar-item w3-button", style:'color:white' %></li>
         <li><a href="pelanggans/new" class="w3-bar-item w3-button", style="color:white">Create New Pelanggan</a></li>
@@ -20,7 +25,9 @@ style="display:none" id="mySidebar">
      <% else%>
           <li><%= link_to "Log In", login_path, class:"w3-bar-item w3-button", style:"color:white" %></li>
     <% end %>
-    <li><a href="/" class="w3-bar-item w3-button", style="color:white">Dashboard</a></li>
+    <% if !logged_in? %>
+      <li><a href="/" class="w3-bar-item w3-button", style="color:white">Dashboard</a></li>
+    <% end %>
     <li><a href="pelanggans" class="w3-bar-item w3-button", style="color:white">Daftar Pelanggan</a></li>
     <li><%= link_to "All Sales", sales_path, class:"w3-bar-item w3-button", style:'color:white' %></li>  
     <li><%= link_to "All Products", products_path, class:"w3-bar-item w3-button", style:'color:white' %></li>  

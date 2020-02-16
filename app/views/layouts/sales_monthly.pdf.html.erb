@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sales Monthly Report</title>
+  <%= wicked_pdf_stylesheet_link_tag "application" -%>
+  <style>
+  td, p {
+      font-size:12pt;
+  }
+  </style>
+</head>
+<body>
+  <div class='container'>
+      <%# Detail Nomor Perbaikan %>
+      <h2 style="text-align:center">Bengkel Mobil Jaya</h2>
+      <p style="text-align:center">Jl.Makam Pahlawan, Km.5, <br>Tanjung Pinang, Kepulauan Riau</p>
+      <br>
+      <h4>Laporan Penjualan Bulan <b><%= @date %></b></h4>
+      <table class="table table-striped">
+        <thead>
+          <th>code</th>
+          <th>Nama</th>
+          <th>Detail</th>
+          <th>Nomor Plat</th>
+          <th>Total</th>
+          <th>Montir</th>
+          <th>Komisi</th>
+        </thead>
+        <tbody>
+            <% @sale_month.each do |sale| %>      
+            <tr>
+                <td><%= sale.pelanggan.code%></td>
+                <td><%= sale.pelanggan.nama%></td>
+                <td><%= sale.name %></td>
+                <td><%= sale.no_kendaraan %></td>
+                <td><%= sale.total_all %></td>
+                <td><%= sale.montir.name %></td>
+                <td><%= sale.commision %></td>
+            </tr>
+            <%end%>
+        </tbody>
+      </table>
+  </div>
+  <div class="pull-right" style="padding-top:50px">
+    <p class="center"><em><strong>Tanda tangan</strong></em></p>
+    <p style="padding-bottom:70px"></p>
+    <p class="center">Pimpinan</p>
+  </div>
+</body>
+</html>

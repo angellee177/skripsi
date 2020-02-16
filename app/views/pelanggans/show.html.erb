@@ -58,7 +58,9 @@
           </div>
           <%# Button Edit %>
         <div class="recipe-actions">
+          <% if logged_in? && (current_montir == @pelanggan.montir || current_montir.admin?) %>
             <%=   link_to 'Edit', edit_pelanggan_path(@pelanggan), class:'btn btn-info' %>
+          <% end %>
             <%= link_to 'Back', pelanggans_path, class:'btn btn-default' %>
         </div>
     </div>
