@@ -72,4 +72,14 @@ class Montir < ApplicationRecord
         end 
     end
    
+
+    def update_with_token!
+        update_column(:auth_token, generate_token)
+    end
+    
+    private
+    
+    def generate_token
+        SecureRandom.urlsafe_base64
+    end
 end
